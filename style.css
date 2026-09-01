@@ -174,21 +174,24 @@ button {
   height: 132px;
 }
 
-.mascots svg {
-  height: 120px;
+.mascot-pair {
+  height: 128px;
   width: auto;
   filter: drop-shadow(0 10px 14px rgba(20, 38, 61, 0.18));
 }
 
+.penguin-blue,
+.penguin-pink {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
 .penguin-blue {
-  transform: translateY(0) rotate(-2deg);
   animation: bob-blue 3.2s ease-in-out infinite;
 }
 
 .penguin-pink {
-  transform: translateY(0) rotate(2deg);
   animation: bob-pink 3.2s ease-in-out infinite;
-  margin-left: -18px;
 }
 
 @keyframes bob-blue {
