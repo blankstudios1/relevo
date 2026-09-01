@@ -12,11 +12,12 @@
       ],
     },
     {
-      q: "Qual destas é a prova mais clara de que somos o casal de pinguins perfeito?",
+      q: "Qual foi a percentagem que deu de relacionamento entre nós os dois?",
+      photo: "assets/q2.jpg",
       options: [
-        { label: "Andamos sempre agarradinhos", reply: "Confirmado pelos registos da colónia." },
-        { label: "Aquecemos um ao outro no frio", reply: "Função oficial, sem dúvida." },
-        { label: "Fazemos tudo em bando... só nós os dois", reply: "O melhor tipo de bando." },
+        { label: "12%", correct: false },
+        { label: "88%", correct: true },
+        { label: "67%", correct: false },
       ],
     },
     {
