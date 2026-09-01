@@ -215,6 +215,7 @@
 
   function renderReveal() {
     progressEl.hidden = true;
+    topPhoto.src = "assets/prize.jpg";
     say("Ta-dah! 🎉");
     card.innerHTML = `
       <div class="reveal-card">
