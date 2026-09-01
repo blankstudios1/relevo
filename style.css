@@ -23,44 +23,6 @@
   --font-body: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --ice: #200f17;
-    --paper: #2d1621;
-    --ink: #fbe9f0;
-    --muted: #c79aac;
-    --line: #4a2836;
-
-    --penguin-blue: #5ba1e0;
-    --penguin-blue-dark: #3e86c9;
-    --penguin-pink: #f6b6d1;
-    --penguin-pink-dark: #f3a0c2;
-    --accent: #ff9d6e;
-    --accent-ink: #3a1608;
-
-    --shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.6);
-    --shadow-soft: 0 12px 24px -16px rgba(0, 0, 0, 0.5);
-  }
-}
-
-:root[data-theme="dark"] {
-  --ice: #200f17;
-  --paper: #2d1621;
-  --ink: #fbe9f0;
-  --muted: #c79aac;
-  --line: #4a2836;
-
-  --penguin-blue: #5ba1e0;
-  --penguin-blue-dark: #3e86c9;
-  --penguin-pink: #f6b6d1;
-  --penguin-pink-dark: #f3a0c2;
-  --accent: #ff9d6e;
-  --accent-ink: #3a1608;
-
-  --shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.6);
-  --shadow-soft: 0 12px 24px -16px rgba(0, 0, 0, 0.5);
-}
-
 /* ==========================================================================
    Base
    ========================================================================== */
