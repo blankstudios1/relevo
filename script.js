@@ -92,9 +92,12 @@
     note: "Só precisas aparecer linda. O resto já está tratado. 💙💗",
   };
 
+  const DEFAULT_PHOTO = "assets/nos.jpg";
+
   const card = document.getElementById("card");
   const speech = document.getElementById("speech");
   const progressEl = document.getElementById("progress");
+  const topPhoto = document.getElementById("top-photo");
 
   let step = -1; // -1 = intro
 
@@ -117,6 +120,7 @@
 
   function renderIntro() {
     progressEl.hidden = true;
+    topPhoto.src = DEFAULT_PHOTO;
     say("Psiu... tenho aqui um quiz só para ti.");
     card.innerHTML = `
       <p class="eyebrow">Colónia de Dois &middot; edição especial</p>
@@ -136,11 +140,11 @@
   function renderQuestion() {
     updateProgress();
     const data = QUESTIONS[step];
+    topPhoto.src = data.photo || DEFAULT_PHOTO;
     say(`Pergunta ${step + 1} de ${QUESTIONS.length}...`);
     const hasCorrectAnswer = data.options.some((opt) => typeof opt.correct === "boolean");
     card.innerHTML = `
       <p class="eyebrow">Pergunta ${step + 1} de ${QUESTIONS.length}</p>
-      ${data.photo ? `<img class="question-photo" src="${data.photo}" alt="" />` : ""}
       <h2 class="question">${data.q}</h2>
       <div class="options">
         ${data.options.map((opt, i) => `<button class="option" type="button" data-i="${i}">${opt.label}</button>`).join("")}
