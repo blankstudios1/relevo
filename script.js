@@ -39,6 +39,7 @@
     },
     {
       q: "Numa escala de pinguim a pinguim apaixonado, quanto gostas de mim?",
+      photo: "assets/q5.jpg",
       options: [
         { label: "Um bocadinho", reply: "Vamos trabalhar nisso." },
         { label: "Muito muito", reply: "Já é um bom começo." },
