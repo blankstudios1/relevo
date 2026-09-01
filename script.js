@@ -251,4 +251,23 @@
 
   buildProgress();
   renderIntro();
+
+  // -- Curtain intro ----------------------------------------------------
+
+  const curtain = document.getElementById("curtain");
+  if (curtain) {
+    if (reduceMotion) {
+      curtain.remove();
+    } else {
+      const leftPanel = curtain.querySelector(".curtain-left");
+      setTimeout(() => curtain.classList.add("is-open"), 550);
+      leftPanel.addEventListener(
+        "transitionend",
+        (e) => {
+          if (e.propertyName === "transform") curtain.remove();
+        },
+        { once: true }
+      );
+    }
+  }
 })();
