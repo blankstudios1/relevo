@@ -21,11 +21,12 @@
       ],
     },
     {
-      q: "Se eu fosse o pinguim azul e tu o rosa, o que fazíamos ao encontrarmo-nos no gelo?",
+      q: "Quantas dentadas já me deste desde que começámos a namorar?",
+      photo: "assets/q3.jpg",
       options: [
-        { label: "Abraço apertado", reply: "Já sinto o frio a fugir." },
-        { label: "Uma dancinha desengonçada", reply: "A mais fofa de sempre." },
-        { label: "As duas coisas, sem hipótese", reply: "Óbvio que sim." },
+        { label: "Quase nenhuma", correct: false },
+        { label: "1000", correct: false },
+        { label: "Já perdi a conta :)", correct: true },
       ],
     },
     {
