@@ -96,7 +96,6 @@
     topPhoto.src = DEFAULT_PHOTO;
     say("Psiu... tenho aqui um quiz só para ti.");
     card.innerHTML = `
-      <p class="eyebrow">Colónia de Dois &middot; edição especial</p>
       <h1 class="intro-title">Um Quiz Só Para Ti</h1>
       <p class="intro-sub">6 perguntas rápidas, um casal de pinguins a comentar tudo, e uma surpresa à espera no fim.</p>
       <div class="intro-actions">
