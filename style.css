@@ -25,11 +25,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ice: #0b1b2b;
-    --paper: #122943;
-    --ink: #eaf4ff;
-    --muted: #90a9c4;
-    --line: #24405f;
+    --ice: #200f17;
+    --paper: #2d1621;
+    --ink: #fbe9f0;
+    --muted: #c79aac;
+    --line: #4a2836;
 
     --penguin-blue: #5ba1e0;
     --penguin-blue-dark: #3e86c9;
@@ -44,11 +44,11 @@
 }
 
 :root[data-theme="dark"] {
-  --ice: #0b1b2b;
-  --paper: #122943;
-  --ink: #eaf4ff;
-  --muted: #90a9c4;
-  --line: #24405f;
+  --ice: #200f17;
+  --paper: #2d1621;
+  --ink: #fbe9f0;
+  --muted: #c79aac;
+  --line: #4a2836;
 
   --penguin-blue: #5ba1e0;
   --penguin-blue-dark: #3e86c9;
