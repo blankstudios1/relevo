@@ -3,11 +3,12 @@
 
   const QUESTIONS = [
     {
-      q: "Se fôssemos uma colónia de pinguins, qual seria o nosso lema?",
+      q: "Qual era o desenho que a colher do café onde foi o nosso primeiro date, no Rato, tinha?",
+      photo: "assets/q1.jpg",
       options: [
-        { label: "Juntos até ao fim do gelo", reply: "Aaw, gosto desse." },
-        { label: "Um pinguim, dois corações", reply: "Isso está escrito algures no gelo." },
-        { label: "Nunca há peixe a mais quando é para dividir", reply: "Verdade absoluta." },
+        { label: "Um coração", correct: true },
+        { label: "Um Pai Natal", correct: false },
+        { label: "Uma flor", correct: false },
       ],
     },
     {
@@ -136,8 +137,10 @@
     updateProgress();
     const data = QUESTIONS[step];
     say(`Pergunta ${step + 1} de ${QUESTIONS.length}...`);
+    const hasCorrectAnswer = data.options.some((opt) => typeof opt.correct === "boolean");
     card.innerHTML = `
       <p class="eyebrow">Pergunta ${step + 1} de ${QUESTIONS.length}</p>
+      ${data.photo ? `<img class="question-photo" src="${data.photo}" alt="" />` : ""}
       <h2 class="question">${data.q}</h2>
       <div class="options">
         ${data.options.map((opt, i) => `<button class="option" type="button" data-i="${i}">${opt.label}</button>`).join("")}
@@ -146,9 +149,23 @@
     card.querySelectorAll(".option").forEach((btn) => {
       btn.addEventListener("click", () => {
         card.querySelectorAll(".option").forEach((b) => b.disabled = true);
-        btn.classList.add("chosen");
         const opt = data.options[Number(btn.dataset.i)];
-        say(opt.reply);
+        btn.classList.add("chosen");
+
+        if (hasCorrectAnswer) {
+          btn.classList.add(opt.correct ? "correct" : "wrong");
+          if (opt.correct) {
+            say(opt.reply || "Acertaste! 💙");
+          } else {
+            const correctOpt = data.options.find((o) => o.correct);
+            const correctBtn = [...card.querySelectorAll(".option")][data.options.indexOf(correctOpt)];
+            if (correctBtn) correctBtn.classList.add("correct");
+            say(opt.reply || `Quase... era "${correctOpt.label}".`);
+          }
+        } else {
+          say(opt.reply);
+        }
+
         setTimeout(() => {
           step += 1;
           if (step < QUESTIONS.length) {
@@ -156,7 +173,7 @@
           } else {
             renderLoading();
           }
-        }, 650);
+        }, 850);
       });
     });
   }
