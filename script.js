@@ -261,13 +261,7 @@
     } else {
       const leftPanel = curtain.querySelector(".curtain-left");
       setTimeout(() => curtain.classList.add("is-open"), 550);
-      leftPanel.addEventListener(
-        "transitionend",
-        (e) => {
-          if (e.propertyName === "transform") curtain.remove();
-        },
-        { once: true }
-      );
+      leftPanel.addEventListener("animationend", () => curtain.remove(), { once: true });
     }
   }
 })();
