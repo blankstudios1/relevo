@@ -38,12 +38,12 @@
       reply: "Guardado. 💙",
     },
     {
-      q: "Numa escala de pinguim a pinguim apaixonado, quanto gostas de mim?",
+      q: "Se fosses um alimento, qual serias?",
       photo: "assets/q5.jpg",
       options: [
-        { label: "Um bocadinho", reply: "Vamos trabalhar nisso." },
-        { label: "Muito muito", reply: "Já é um bom começo." },
-        { label: "Ao infinito e mais um bocado", reply: "Essa é a resposta certa." },
+        { label: "Uma batata", reply: "Versátil e reconfortante, faz sentido." },
+        { label: "Um tomate (e não, não é depois do ginásio)", reply: "Registado, sem comentários." },
+        { label: "Um Pickleeeeeeeeee", reply: "Icónica, essa resposta." },
       ],
     },
     {
