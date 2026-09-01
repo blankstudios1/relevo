@@ -47,43 +47,11 @@
       ],
     },
     {
-      q: "O que fazes quando tens saudades minhas?",
+      q: "Pengi?",
       options: [
-        { label: "Fico a pensar em ti", reply: "Eu também penso em ti." },
-        { label: "Vejo as nossas fotos", reply: "As melhores fotos da colónia." },
-        { label: "As duas, sempre", reply: "É exatamente isso." },
-      ],
-    },
-    {
-      q: "Se houvesse um prémio \"Melhor Casal de Pinguins do Ano\", quem ganhava?",
-      options: [
-        { label: "Nós, obviamente", reply: "Sem surpresas aqui." },
-        { label: "Nós, sem sombra de dúvida", reply: "O júri concorda." },
-        { label: "Nós... não há concorrência", reply: "Categoria cancelada por falta de rivais." },
-      ],
-    },
-    {
-      q: "Qual é a atividade de casal-pinguim perfeita?",
-      options: [
-        { label: "Andar juntinhos devagarinho", reply: "O passeio ideal." },
-        { label: "Ficar aconchegados a ver o gelo passar", reply: "Alta definição de romance." },
-        { label: "Rir das nossas piadas internas", reply: "O passatempo favorito." },
-      ],
-    },
-    {
-      q: "Se me pedissem para te descrever com um só emoji, qual seria?",
-      options: [
-        { label: "🐧", reply: "Escolha nobre." },
-        { label: "💙", reply: "Também serve." },
-        { label: "💗", reply: "Perfeito também." },
-      ],
-    },
-    {
-      q: "Estás pronta para descobrir a tua surpresa?",
-      options: [
-        { label: "Sim!!", reply: "Então vamos lá." },
-        { label: "Já não aguento a curiosidade", reply: "Só mais uns segundos." },
-        { label: "Força, mostra lá", reply: "Como quiseres." },
+        { label: "Han tas a dizer o quê?", correct: false },
+        { label: "PEEENNNNGGG", correct: true },
+        { label: "Ahhh isso são aqueles pinguins?", correct: false },
       ],
     },
   ];
@@ -128,7 +96,7 @@
     card.innerHTML = `
       <p class="eyebrow">Colónia de Dois &middot; edição especial</p>
       <h1 class="intro-title">Um Quiz Só Para Ti</h1>
-      <p class="intro-sub">10 perguntas rápidas, um casal de pinguins a comentar tudo, e uma surpresa à espera no fim.</p>
+      <p class="intro-sub">6 perguntas rápidas, um casal de pinguins a comentar tudo, e uma surpresa à espera no fim.</p>
       <div class="intro-actions">
         <button class="btn-primary" id="start-btn" type="button">Começar</button>
       </div>
