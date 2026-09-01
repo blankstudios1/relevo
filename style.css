@@ -425,10 +425,12 @@ button {
   top: 0;
   left: 0;
   right: 0;
-  height: 10px;
-  z-index: 2;
-  background: linear-gradient(180deg, #f1cf82, #d9a441 55%, #9c7222);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.45);
+  height: 12px;
+  z-index: 4;
+  background:
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.25) 0 2px, transparent 2px 10px),
+    linear-gradient(180deg, #f6dca0, #d9a441 45%, #9c7222 80%, #7a5714);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   transition: opacity 0.6s ease 0.4s;
 }
 
@@ -436,22 +438,42 @@ button {
   width: 50%;
   height: 100%;
   position: relative;
-  background:
-    repeating-linear-gradient(100deg, rgba(0, 0, 0, 0.22) 0 12px, rgba(255, 255, 255, 0.06) 12px 16px, transparent 16px 30px),
-    linear-gradient(120deg, #8a0f24, #b3132e 42%, #8a0f24 72%, #5c0a19);
-  box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.55), inset 0 0 16px rgba(255, 255, 255, 0.05);
+  background-color: #7d0f24;
+  background-image:
+    radial-gradient(ellipse 140% 55% at 50% -12%, rgba(255, 232, 200, 0.22), transparent 58%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.55) 0px,
+      rgba(0, 0, 0, 0.18) 5px,
+      rgba(255, 255, 255, 0.32) 13px,
+      rgba(0, 0, 0, 0.08) 21px,
+      rgba(0, 0, 0, 0.42) 29px,
+      rgba(0, 0, 0, 0.55) 37px
+    ),
+    linear-gradient(180deg, #a5182f 0%, #7d0f24 45%, #5c0a19 78%, #3d0710 100%);
+  background-blend-mode: screen, overlay, normal;
+  box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.04);
   transition: transform 1.25s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .curtain-left {
-  clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%);
+  clip-path: polygon(
+    0 0, 100% 0,
+    88% 6%, 94% 14%, 87% 22%, 95% 30%, 89% 38%,
+    96% 46%, 90% 54%, 95% 62%, 88% 70%, 94% 78%,
+    89% 86%, 96% 94%, 100% 100%,
+    0 100%
+  );
 }
 
 .curtain-right {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10% 50%);
-  background:
-    repeating-linear-gradient(80deg, rgba(0, 0, 0, 0.22) 0 12px, rgba(255, 255, 255, 0.06) 12px 16px, transparent 16px 30px),
-    linear-gradient(60deg, #8a0f24, #b3132e 42%, #8a0f24 72%, #5c0a19);
+  clip-path: polygon(
+    100% 0, 0 0,
+    12% 6%, 6% 14%, 13% 22%, 5% 30%, 11% 38%,
+    4% 46%, 10% 54%, 5% 62%, 12% 70%, 6% 78%,
+    11% 86%, 4% 94%, 0 100%,
+    100% 100%
+  );
 }
 
 .curtain-fringe {
@@ -459,12 +481,33 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 20px;
-  background-image: radial-gradient(circle at center, #d9a441 55%, transparent 60%);
-  background-size: 22px 22px;
+  height: 24px;
+}
+
+.curtain-fringe::before,
+.curtain-fringe::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.curtain-fringe::before {
+  top: 0;
+  height: 6px;
+  background: linear-gradient(180deg, #f1cf82, #b3841f);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.curtain-fringe::after {
+  top: 6px;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 50% 0%, #f1cf82 45%, #9c7222 70%, transparent 72%);
+  background-size: 16px 20px;
   background-repeat: repeat-x;
-  background-position: 0 6px;
-  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.4));
+  background-position: 0 0;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.45));
 }
 
 .curtain.is-open .curtain-left {
@@ -476,6 +519,22 @@ button {
 }
 
 .curtain.is-open .curtain-rod {
+  opacity: 0;
+}
+
+.curtain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 65% 40% at 50% 0%, rgba(255, 219, 173, 0.2), transparent 60%),
+    radial-gradient(ellipse 130% 90% at 50% 100%, rgba(0, 0, 0, 0.5), transparent 55%);
+  transition: opacity 0.6s ease 0.3s;
+}
+
+.curtain.is-open::after {
   opacity: 0;
 }
 
