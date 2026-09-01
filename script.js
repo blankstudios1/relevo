@@ -57,9 +57,10 @@
   ];
 
   const PRIZE = {
+    photo: "assets/restaurant.jpg",
     heading: "Jantar a dois 🍝",
-    place: "Sophia — Cucina della Nonna",
-    date: "Sexta-feira, 4 de setembro",
+    place: "Sophia",
+    date: "Sexta-feira, 4 de setembro · 19:45",
     note: "Só precisas aparecer linda. O resto já está tratado. 💙💗",
   };
 
@@ -216,8 +217,9 @@
     say("Ta-dah! 🎉");
     card.innerHTML = `
       <div class="reveal-card">
-        <p class="reveal-kicker">A tua surpresa</p>
-        <h1 class="reveal-title">Encontrámos o par perfeito.</h1>
+        <p class="reveal-kicker">Parabéns!</p>
+        <h1 class="reveal-title">Ganhaste um jantar a dois.</h1>
+        <img class="reveal-photo" src="${PRIZE.photo}" alt="${PRIZE.place}" />
         <div class="reveal-prize">
           <div>${PRIZE.heading}</div>
           <div class="reveal-place">${PRIZE.place}</div>
