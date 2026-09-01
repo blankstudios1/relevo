@@ -30,12 +30,11 @@
       ],
     },
     {
-      q: "O que é mais fofo no mundo?",
-      options: [
-        { label: "Um bebé pinguim a aprender a andar", reply: "É difícil competir com isso." },
-        { label: "Nós os dois a dormir agarradinhos", reply: "Isto ganha sempre." },
-        { label: "Impossível escolher, empatam", reply: "Resposta diplomática, aceite." },
-      ],
+      type: "text",
+      q: "Qual foi o aspeto principal em mim que te fez apaixonar por mim?",
+      formAction: "https://docs.google.com/forms/d/e/1FAIpQLSdRIRVDWZSAedVEmsScnNNAASlAMiURqp3I_oAtGtZzB2R3qw/formResponse",
+      formEntry: "entry.1439445714",
+      reply: "Guardado. 💙",
     },
     {
       q: "Numa escala de pinguim a pinguim apaixonado, quanto gostas de mim?",
@@ -139,11 +138,61 @@
     });
   }
 
+  function goToNextStep() {
+    step += 1;
+    if (step < QUESTIONS.length) {
+      renderQuestion();
+    } else {
+      renderLoading();
+    }
+  }
+
+  function appendNextButton() {
+    const nextRow = document.createElement("div");
+    nextRow.className = "next-row";
+    nextRow.innerHTML = `<button class="next-btn" type="button" aria-label="Próxima pergunta">→</button>`;
+    card.appendChild(nextRow);
+    nextRow.querySelector(".next-btn").addEventListener("click", goToNextStep);
+  }
+
+  function submitToGoogleForm(action, entry, value) {
+    const body = new URLSearchParams();
+    body.set(entry, value);
+    fetch(action, { method: "POST", mode: "no-cors", body }).catch(() => {});
+  }
+
   function renderQuestion() {
     updateProgress();
     const data = QUESTIONS[step];
     topPhoto.src = data.photo || DEFAULT_PHOTO;
     say(`Pergunta ${step + 1} de ${QUESTIONS.length}...`);
+
+    if (data.type === "text") {
+      card.innerHTML = `
+        <p class="eyebrow">Pergunta ${step + 1} de ${QUESTIONS.length}</p>
+        <h2 class="question">${data.q}</h2>
+        <textarea class="text-answer" rows="3" placeholder="Escreve aqui..."></textarea>
+        <div class="cta-row">
+          <button class="btn-primary" type="button" id="text-submit" disabled>Enviar</button>
+        </div>
+      `;
+      const textarea = card.querySelector(".text-answer");
+      const submitBtn = card.querySelector("#text-submit");
+      textarea.addEventListener("input", () => {
+        submitBtn.disabled = textarea.value.trim().length === 0;
+      });
+      submitBtn.addEventListener("click", () => {
+        const value = textarea.value.trim();
+        if (!value) return;
+        submitToGoogleForm(data.formAction, data.formEntry, value);
+        textarea.disabled = true;
+        submitBtn.remove();
+        say(data.reply || "Guardado. 💙");
+        appendNextButton();
+      });
+      return;
+    }
+
     const hasCorrectAnswer = data.options.some((opt) => typeof opt.correct === "boolean");
     card.innerHTML = `
       <p class="eyebrow">Pergunta ${step + 1} de ${QUESTIONS.length}</p>
@@ -172,18 +221,7 @@
           say(opt.reply);
         }
 
-        const nextRow = document.createElement("div");
-        nextRow.className = "next-row";
-        nextRow.innerHTML = `<button class="next-btn" type="button" aria-label="Próxima pergunta">→</button>`;
-        card.appendChild(nextRow);
-        nextRow.querySelector(".next-btn").addEventListener("click", () => {
-          step += 1;
-          if (step < QUESTIONS.length) {
-            renderQuestion();
-          } else {
-            renderLoading();
-          }
-        });
+        appendNextButton();
       });
     });
   }
