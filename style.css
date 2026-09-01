@@ -261,6 +261,35 @@ button {
   opacity: 0.55;
 }
 
+.next-row {
+  display: flex;
+  justify-content: flex-end;
+  animation: rise 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.next-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.3rem;
+  color: #fff5ee;
+  background: linear-gradient(135deg, var(--accent), var(--penguin-pink-dark));
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.next-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: var(--shadow);
+}
+
+.next-btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .intro-actions, .cta-row {
   display: flex;
   justify-content: center;

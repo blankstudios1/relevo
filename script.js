@@ -170,14 +170,18 @@
           say(opt.reply);
         }
 
-        setTimeout(() => {
+        const nextRow = document.createElement("div");
+        nextRow.className = "next-row";
+        nextRow.innerHTML = `<button class="next-btn" type="button" aria-label="Próxima pergunta">→</button>`;
+        card.appendChild(nextRow);
+        nextRow.querySelector(".next-btn").addEventListener("click", () => {
           step += 1;
           if (step < QUESTIONS.length) {
             renderQuestion();
           } else {
             renderLoading();
           }
-        }, 850);
+        });
       });
     });
   }
