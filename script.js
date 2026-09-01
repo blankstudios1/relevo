@@ -61,7 +61,7 @@
     heading: "Jantar a dois 🍝",
     place: "Sophia",
     date: "Sexta-feira, 4 de setembro · 19:45",
-    note: "Só precisas aparecer linda. O resto já está tratado. 💙💗",
+    note: "Só precisas de aparecer linda como sempre. O resto já está tratado. 💙💗",
   };
 
   const DEFAULT_PHOTO = "assets/nos.jpg";
