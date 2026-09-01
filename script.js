@@ -48,6 +48,7 @@
     },
     {
       q: "Pengi?",
+      photo: "assets/q6.jpg",
       options: [
         { label: "Han tas a dizer o quê?", correct: false },
         { label: "PEEENNNNGGG", correct: true },
