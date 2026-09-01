@@ -32,6 +32,7 @@
     {
       type: "text",
       q: "Qual foi o aspeto principal em mim que te fez apaixonar por mim?",
+      photo: "assets/q4.jpg",
       formAction: "https://docs.google.com/forms/d/e/1FAIpQLSdRIRVDWZSAedVEmsScnNNAASlAMiURqp3I_oAtGtZzB2R3qw/formResponse",
       formEntry: "entry.1439445714",
       reply: "Guardado. 💙",
